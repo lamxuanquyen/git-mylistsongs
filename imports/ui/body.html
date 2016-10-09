@@ -1,0 +1,41 @@
+<body>
+  <div class= "container">
+     <header>
+       <h1>Song list {{#if currentUser}}({{counter}}){{/if}}</h1>
+
+       {{>loginButtons}}
+       
+       {{#if currentUser}}
+        <form class= "new-song">
+          <label>Song name: </label>
+          <input type= "text" name="title" placeholder="a new song" />
+          <input type= "text" name="folder" placeholder="folder" />
+          <input type= "submit" value= "submit" />
+        </form>
+       {{else}}
+        <p>Please log in to add song</p>
+       {{/if}}
+     </header>
+
+     <div class="dropdown">
+         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">menu list 
+           <span class="caret"></span>
+         </button>
+         <ul class="dropdown-menu">
+              {{#each tag in tags}}
+               <li>
+                <input type="checkbox"  name={{tag}} class="toggle-checked" />
+                 {{tag}}
+               </li>
+              {{/each}}
+         </ul>
+     </div>
+
+     <ul>
+       {{#each songs}}
+          {{> song}}
+       {{/each}}
+     </ul>
+  </div>
+</body>
+

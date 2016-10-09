@@ -1,0 +1,17 @@
+<template name="song">
+  <li>
+   {{#if currentUser}}
+    <button class= "delete">&times;</button>
+    <button class= "google" >search google</button>
+    <span class="text">
+    {{#if folder}}
+       {{folder}} 
+    {{else}} 
+       noname
+    {{/if}}
+    _ {{Namesong}}
+    </span>
+   {{/if}}
+  </li>
+</template>
+
